@@ -8,9 +8,6 @@ server.listen(port, () => {
   console.log(`server started at http://localhost:${port}`);
 });
 
-
-
-
 server.addListener('request', (req, res) => {
   if (req.url === '/') {
     res.end(readFileSync('index.html'));
@@ -25,9 +22,4 @@ server.addListener('request', (req, res) => {
   } else {
     res.end('404');
   }
-
-
-
-
-
 })
