@@ -5,7 +5,8 @@ const tasks = []
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  addTask(input.value);
+  addTaskToArray(input.value);
+  addTask()
   input.value = '';
 })
 
@@ -17,4 +18,13 @@ form.addEventListener('submit', (event) => {
 
 function addTaskToArray(text) {
   tasks.push(text);
+}
+
+function addTask(text) {
+ ul.innerHTML = '';
+ tasks.forEach((task) => {
+   const li = document.createElement('li');
+   li.textContent = task;
+   ul.appendChild(li);
+ })
 }
