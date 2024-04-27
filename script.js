@@ -13,4 +13,3 @@ function addTask(text) {
   li.textContent = text;
   ul.appendChild(li);
 }
-
