@@ -1,25 +1,11 @@
+const input = document.getElementsByTagName('input')[0];
+const button = document.getElementsByTagName('button')[0];
 
-const { readFileSync } = require('fs');
-const { Server } = require('http');
-const server = new Server();
-const port = 3000;
 
-server.listen(port, () => {
-  console.log(`server started at http://localhost:${port}`);
-});
-
-server.addListener('request', (req, res) => {
-  if (req.url === '/') {
-    res.end(readFileSync('index.html'));
-  } else if (req.url === '/favicon.ico') {
-    res.end(readFileSync('favicon.ico'));
-  } else if (req.url === '/index.html') {
-    res.end(readFileSync('index.html'));
-  } else if (req.url === '/style.css') {
-    res.end(readFileSync('style.css'));
-  } else if (req.url === '/script.js') {
-    res.end(readFileSync('script.js'));
-  } else {
-    res.end('404');
-  }
+button.addEventListener('click', (event) => {
+  event.preventDefault();
+  const li = document.createElement('li');
+  li.textContent = input.value;
+  document.getElementsByTagName('ul')[0].appendChild(li);
+  input.value = '';
 })
