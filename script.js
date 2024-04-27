@@ -1,6 +1,7 @@
 const input = document.getElementsByTagName('input')[0];
 const form = document.getElementsByTagName('form')[0];
 const ul = document.getElementsByTagName('ul')[0];
+const tasks = []
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -8,8 +9,12 @@ form.addEventListener('submit', (event) => {
   input.value = '';
 })
 
-function addTask(text) {
-  const li = document.createElement('li');
-  li.textContent = text;
-  ul.appendChild(li);
+// function addTask(text) {
+//   const li = document.createElement('li');
+//   li.textContent = text;
+//   ul.appendChild(li);
+// }
+
+function addTaskToArray(text) {
+  tasks.push(text);
 }
