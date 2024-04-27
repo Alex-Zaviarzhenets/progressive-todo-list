@@ -1,11 +1,16 @@
 const input = document.getElementsByTagName('input')[0];
-const button = document.getElementsByTagName('button')[0];
+const form = document.getElementsByTagName('form')[0];
+const ul = document.getElementsByTagName('ul')[0];
 
-
-button.addEventListener('click', (event) => {
+form.addEventListener('submit', (event) => {
   event.preventDefault();
-  const li = document.createElement('li');
-  li.textContent = input.value;
-  document.getElementsByTagName('ul')[0].appendChild(li);
+  addTask(input.value);
   input.value = '';
 })
+
+function addTask(text) {
+  const li = document.createElement('li');
+  li.textContent = text;
+  ul.appendChild(li);
+}
+
