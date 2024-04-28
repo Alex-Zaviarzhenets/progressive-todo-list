@@ -13,9 +13,16 @@ renderTasks();
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   addTask(input.value);
-  
+
   input.value = '';
 });
+
+window.addEventListener('storage', (event) => {
+  if (event.key === 'tasks') {
+    loadTasks();
+    renderTasks();
+  }
+})
 
 function addTask(text) {
   tasks.push({ text });
