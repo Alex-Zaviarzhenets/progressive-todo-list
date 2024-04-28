@@ -7,7 +7,8 @@ const tasks = [
   { text: 'take over the world' },
 ];
 
-loadTasks();
+getTasks().then(renderTasks);
+// loadTasks();
 renderTasks();
 
 form.addEventListener('submit', (event) => {
@@ -48,4 +49,8 @@ function loadTasks() {
   if (data) {
     tasks.splice(0, tasks.length, ...JSON.parse(data));
   }
+}
+
+function getTasks() {
+  fetch('/api/tasks')
 }
