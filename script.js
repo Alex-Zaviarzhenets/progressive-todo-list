@@ -7,6 +7,7 @@ const tasks = [
   { text: 'take over the world' },
 ];
 
+loadTasks();
 renderTasks();
 
 form.addEventListener('submit', (event) => {
@@ -19,6 +20,7 @@ form.addEventListener('submit', (event) => {
 function addTask(text) {
   tasks.push({ text });
   renderTasks();
+  saveChanges();
 }
 
 function renderTasks() {
@@ -28,4 +30,15 @@ function renderTasks() {
     li.textContent = task.text;
     ul.appendChild(li);
   });
+}
+
+function saveChanges() {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function loadTasks() {
+  const data = localStorage.getItem('tasks');
+  if (data) {
+    tasks.splice(0, tasks.length, ...JSON.parse(data));
+  }
 }
