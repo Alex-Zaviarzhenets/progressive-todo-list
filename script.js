@@ -17,9 +17,8 @@ form.addEventListener('submit', (event) => {
 });
 
 function addTask(text) {
-  const li = document.createElement('li');
-  li.textContent = text;
-  ul.appendChild(li);
+  tasks.push({ text });
+  renderTasks();
 }
 
 function renderTasks() {
